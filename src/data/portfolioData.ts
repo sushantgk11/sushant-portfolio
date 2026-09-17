@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   experienceYears: '4+ Years Experience',
   coreTech: ['4+ Years Experience', 'React', 'Next.js', 'TypeScript', 'Redux'],
   email: 'sushantgk159@gmail.com',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/sushant-kulkarni-68a026206',
   location: 'India',
   targetRoles: 'Senior Frontend Developer roles at leading product-based companies (Amazon, Flipkart, Razorpay, Swiggy, Microsoft, etc.)',
   about:
