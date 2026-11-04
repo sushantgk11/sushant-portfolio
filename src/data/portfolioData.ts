@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   headline: 'Building scalable, high-performance web applications with React, Next.js and modern frontend technologies.',
   experienceYears: '4+ Years Experience',
   coreTech: ['4+ Years Experience', 'React', 'Next.js', 'TypeScript', 'Redux'],
-  email: 'sushantgk159@gmail.com',
+  email: 'sushantgk11@gmail.com',
   linkedin: 'https://www.linkedin.com/in/sushant-kulkarni-68a026206',
   location: 'India',
   targetRoles: 'Senior Frontend Developer roles at leading product-based companies (Amazon, Flipkart, Razorpay, Swiggy, Microsoft, etc.)',
