@@ -107,8 +107,8 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
                 {PERSONAL_INFO.name}
               </h1>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                <span className="text-cyan-400">Senior Frontend </span>
-                <span className="text-purple-300">Developer</span>
+                <span className="text-cyan-400 block">Sr. Software Engineer </span>
+                <span className="text-purple-300">(Front-End & Generative AI)</span>
               </h2>
             </motion.div>
 
@@ -121,7 +121,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 pt-2">
               <div className="flex items-center gap-2 text-xs font-medium text-slate-300">
                 <Briefcase className="w-4 h-4 text-cyan-400" />
-                <span>4+ Years Experience</span>
+                <span>5+ Years Experience</span>
               </div>
 
               <div className="flex items-center gap-1.5 text-xs font-medium text-slate-300">

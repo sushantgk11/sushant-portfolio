@@ -128,7 +128,7 @@ ${SKILL_CATEGORIES.map((cat) => `${cat.title}: ${cat.skills.join(', ')}`).join('
                   {PERSONAL_INFO.name}
                 </h1>
                 <h2 className="text-base text-cyan-400 font-medium">
-                  {PERSONAL_INFO.role} · 4+ Years Experience
+                  {PERSONAL_INFO.role} · 5+ Years Experience
                 </h2>
               </div>
 
