@@ -107,7 +107,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
                 {PERSONAL_INFO.name}
               </h1>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                <span className="text-cyan-400 block">Senior Frontend  </span>
+                <span className="text-cyan-400">Senior Frontend  </span>
                 <span className="text-purple-300">Developer</span>
               </h2>
             </motion.div>
