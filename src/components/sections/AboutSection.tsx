@@ -61,7 +61,7 @@ export function AboutSection() {
 
           <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-800/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-cyan-200 font-mono">
             <span>Primary Focus: Scalable, Type-Safe React & Next.js Architecture</span>
-            <span className="text-cyan-400">5+ Years Experience</span>
+            <span className="text-cyan-400">4.5+ Years Experience</span>
           </div>
 
         </motion.div>

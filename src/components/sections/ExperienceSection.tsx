@@ -69,10 +69,10 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
               {/* Date & Duration */}
               <div className="space-y-0.5">
                 <div className="text-xs font-medium text-slate-300">
-                  Nov 2021 — Present
+                  Nov 2021 — Aug 2026
                 </div>
                 <div className="text-xs font-mono font-bold text-cyan-400">
-                  5+ Years
+                  4.5+ Years
                 </div>
               </div>
             </div>
@@ -104,8 +104,8 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
                   Noesis Knowledge Solutions Pvt. Ltd.
                 </p>
                 <p className="text-xs font-mono text-slate-400">
-                  Nov 2021 — Present <span className="text-slate-600">•</span>{' '}
-                  <span className="text-slate-300 font-medium">5+ Years</span>
+                  Nov 2021 — Aug 2026 <span className="text-slate-600">•</span>{' '}
+                  <span className="text-slate-300 font-medium">4.5+ Years</span>
                 </p>
               </div>
             </div>
