@@ -30,16 +30,14 @@ export function ExperienceSection() {
             </span>
           </div>
 
-          {/* Heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            <span className="sm:block">
-              Building production-ready{' '}
-              <span className="text-cyan-400">web experiences</span>
-            </span>{' '}
-            <span className="sm:block text-cyan-400">
-              across multiple product domains.
-            </span>
+            Frontend engineering at <span className="text-cyan-400">Noesis</span>
           </h2>
+          <p className="max-w-2xl text-base leading-relaxed text-slate-300">
+            I built and maintained client applications across e-commerce, SaaS, financial services, and AI.
+            On some engagements I developed the frontend independently. On others I delivered features
+            alongside designers, backend engineers, and QA.
+          </p>
         </motion.div>
 
         {/* Experience Timeline Grid with vertical line on left */}

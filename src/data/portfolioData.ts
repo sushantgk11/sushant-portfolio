@@ -246,12 +246,12 @@ export const EXPERIENCE_LIST: Experience[] = [{
   period: 'November 2021 – August 2026',
   location: 'Full-time',
   bullets: [
-    'Independently built an embeddable chat frontend with streamed replies, browser microphone capture, and interruptible audio playback.',
-    'Developed Jewelrat’s frontend, connecting product selections to the iJewel viewer and restoring saved configurations across shopping journeys.',
-    'Built EAA Donation’s responsive English and Arabic campaign forms and donor screens, with layouts that switch reading direction.',
-    'Contributed agent editing, knowledge-source uploads, Firestore processing feedback, publishing, and widget preview to Brainstormer Studio.',
-    'Connected Origem’s product filters and variant selectors to catalogue APIs, and contributed OTP sign-in, cart, wishlist, and Razorpay checkout interfaces.',
-    'Delivered research and account-opening interfaces with the SMIFS team, including on-demand first-page previews for PDF reports.',
+    'Built reusable React and Next.js components for forms, product pages, and dashboards. Used shared state to carry user selections across multi-step journeys.',
+    'Integrated REST APIs and third-party services into customer-facing workflows, including sign-in, saved carts, checkout, and interactive product configuration.',
+    'Built real-time interfaces that streamed chat replies, coordinated microphone input with audio playback, and showed users when uploaded content was ready.',
+    'Developed responsive English and Arabic interfaces, adapting form layouts, labels, and reading direction for each language.',
+    'Used server rendering and cache revalidation for CMS-driven pages. Loaded images and document previews on demand to limit the work required on initial page load.',
+    'Reviewed pull requests and worked with design, backend, and QA colleagues to investigate and resolve production issues.',
   ],
   skills: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'REST APIs', 'WebSockets', 'Responsive UI'],
 }];
