@@ -204,39 +204,27 @@ export const PROJECTS: Project[] = [
 export const ENGINEERING_HIGHLIGHTS = [
   {
     "title": "Frontend Architecture",
-    "projectId": "ai-chat-widget",
-    "section": "architecture",
-    "description": "How an iframe hosts a configurable React application on another site."
+    "description": "I separate data fetching from presentation and build shared components where screens have the same behavior. That gives the team a clear place to make changes."
   },
   {
     "title": "Real-Time Applications",
-    "projectId": "brainstormer-creator-studio",
-    "section": "implementation",
-    "description": "How creators see processing updates after a knowledge upload finishes."
+    "description": "I connect streaming events to the interface so people can see what has arrived, what is still processing, and when they can take their next action."
   },
   {
     "title": "Complex State Management",
-    "projectId": "ring-builder",
-    "section": "architecture",
-    "description": "How a saved ring configuration survives a change of screen."
+    "description": "I keep temporary input close to its component and share state when several screens depend on it. For multi-step workflows, I decide which choices need to survive navigation or a refresh."
   },
   {
     "title": "Performance Engineering",
-    "projectId": "smifs",
-    "section": "implementation",
-    "description": "How a research card previews a PDF without loading the whole report."
+    "description": "I prioritize what the first screen needs. In Next.js, that includes choosing which content to render on the server, when to refresh cached data, and which components to load on demand."
   },
   {
     "title": "Responsive and Accessible UI",
-    "projectId": "eaa-donation",
-    "section": "implementation",
-    "description": "How changing languages also changes the reading direction of a donation form."
+    "description": "I build forms and navigation that work on small screens and with a keyboard. I pay attention to focus order, field labels, and how layouts adapt to different languages and reading directions."
   },
   {
     "title": "API and Third-Party Integrations",
-    "projectId": "origem",
-    "section": "architecture",
-    "description": "How product selection, customer state, and checkout work together."
+    "description": "I integrate REST APIs, authentication, and third-party services into user workflows. I handle pending requests and failures so people know whether an action succeeded or needs another attempt."
   }
 ];
 
