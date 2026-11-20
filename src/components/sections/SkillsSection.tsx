@@ -1,5 +1,5 @@
 import { Monitor, Database, Palette, Cloud, Settings, Sparkles } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 import { SKILL_CATEGORIES } from '../../data/portfolioData';
 
 export function SkillsSection() {

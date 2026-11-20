@@ -46,6 +46,12 @@ export function Navbar() {
   return (
     <header
       id="main-navbar"
+      onKeyDown={(event) => {
+        if (mobileMenuOpen && event.key === 'Escape') {
+          closeMenu();
+          document.getElementById('mobile-menu-toggle-btn')?.focus();
+        }
+      }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
           ? 'bg-[#07090e]/90 backdrop-blur-md border-b border-white/[0.06] py-3.5 shadow-xl shadow-black/30'
@@ -153,8 +159,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-menu-drawer"
-          onKeyDown={(event) => { if (event.key === 'Escape') { setMobileMenuOpen(false); document.getElementById('mobile-menu-toggle-btn')?.focus(); } }}
-          className="md:hidden border-b border-white/10 bg-[#07090e]/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3"
+          className="max-h-[calc(100dvh-5rem)] overflow-y-auto md:hidden border-b border-white/10 bg-[#07090e]/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3"
         >
           <div className="flex flex-col space-y-1">
             {navLinks.map((link) => (

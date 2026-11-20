@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Download, Briefcase } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { HeroVisual } from './HeroVisual';

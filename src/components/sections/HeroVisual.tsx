@@ -1,5 +1,5 @@
 import { Zap, Accessibility, Box, Code2 } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 
 // Custom crisp SVG icons matching the reference design
 function ReactIcon({ className = 'w-10 h-10' }: { className?: string }) {

@@ -2,7 +2,7 @@ import { Project, Experience, SkillGroup } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Sushant Kulkarni', role: 'Senior Frontend Developer', experienceYears: '4.9 years of experience',
-  headline: 'I build React and Next.js applications, from live voice chat and AI agent workspaces to interactive jewellery storefronts.',
+  headline: 'I take ownership of complex frontend features, from the first design discussion through release. In React and Next.js, I design reusable components, organize application state, and connect interfaces to APIs and real-time updates. I work with designers and backend engineers to keep those features fast, accessible, and straightforward for the next developer to extend.',
   coreTech: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Redux Toolkit'], email: 'sushantgk11@gmail.com',
   linkedin: 'https://www.linkedin.com/in/sushant-kulkarni-68a026206', location: 'India',
   about: 'Frontend developer building complex web applications, real-time user experiences, interactive product interfaces, and AI-powered frontend experiences across SaaS and e-commerce.',

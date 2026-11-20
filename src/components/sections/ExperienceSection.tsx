@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 import { CAPABILITY_TAGS, EXPERIENCE_LIST, PERSONAL_INFO } from '../../data/portfolioData';
 
 export function ExperienceSection() {

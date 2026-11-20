@@ -1,3 +1,4 @@
+import { LazyMotion, domAnimation } from 'motion/react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { HeroSection } from './components/sections/HeroSection';
@@ -6,6 +7,7 @@ import { SelectedWork } from './components/sections/SelectedWork';
 import { EngineeringHighlights } from './components/sections/EngineeringHighlights';
 import { ExperienceSection } from './components/sections/ExperienceSection';
 import { SkillsSection } from './components/sections/SkillsSection';
+import { ContactSection } from './components/sections/ContactSection';
 
 export default function App() {
   return (
@@ -13,12 +15,15 @@ export default function App() {
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar />
       <main tabIndex={-1} id="main-content" className="flex-1">
-        <HeroSection />
-        <TechStrip />
-        <SelectedWork />
-        <EngineeringHighlights />
-        <ExperienceSection />
-        <SkillsSection />
+        <LazyMotion features={domAnimation} strict>
+          <HeroSection />
+          <TechStrip />
+          <SelectedWork />
+          <EngineeringHighlights />
+          <ExperienceSection />
+          <SkillsSection />
+          <ContactSection />
+        </LazyMotion>
       </main>
       <Footer />
     </div>
