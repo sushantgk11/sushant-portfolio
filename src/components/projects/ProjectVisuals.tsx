@@ -209,7 +209,7 @@ function RingBuilderVisual() {
           <span className="font-mono text-white text-[10px] font-semibold">3D RING STUDIO</span>
         </div>
         <span className="text-[9px] font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">
-          WebGL 60 FPS
+          Interactive viewer integration
         </span>
       </div>
 
@@ -390,7 +390,7 @@ function SmifsVisual() {
             Research Reports
           </span>
           <div className="p-1.5 rounded bg-blue-950/20 border border-blue-800/30 text-[8px] space-y-0.5">
-            <span className="font-semibold text-blue-300 block truncate">Banking & Fintech Sector</span>
+            <span className="font-semibold text-blue-300 block truncate">Financial Services Sector</span>
             <span className="text-slate-400 line-clamp-1">Q2 institutional earnings outlook</span>
             <span className="text-[7px] text-emerald-400 font-mono block">Target: Outperform</span>
           </div>

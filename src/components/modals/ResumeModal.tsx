@@ -53,7 +53,7 @@ Senior Frontend Developer — Noesis Knowledge Solutions Pvt. Ltd. (2021 – 202
 ${EXPERIENCE_LIST[0].bullets.map((b) => `• ${b}`).join('\n')}
 
 FEATURED PRODUCTION PROJECTS:
-${PROJECTS.map((p) => `• ${p.name} (${p.category}): ${p.tagline}\n  Tech: ${p.technologies.join(', ')}`).join('\n')}
+${PROJECTS.map((p) => `• ${p.name} (${p.category}): ${p.description}\n  Tech: ${p.technologies.join(', ')}`).join('\n')}
 
 TECHNICAL SKILLS:
 ${SKILL_CATEGORIES.map((cat) => `${cat.title}: ${cat.skills.join(', ')}`).join('\n')}
@@ -128,7 +128,7 @@ ${SKILL_CATEGORIES.map((cat) => `${cat.title}: ${cat.skills.join(', ')}`).join('
                   {PERSONAL_INFO.name}
                 </h1>
                 <h2 className="text-base text-cyan-400 font-medium">
-                  {PERSONAL_INFO.role} · 5+ Years Experience
+                  {PERSONAL_INFO.role} · {PERSONAL_INFO.experienceYears}
                 </h2>
               </div>
 

@@ -16,7 +16,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'work', 'experience', 'skills'];
+      const sections = ['home', 'work', 'engineering', 'experience', 'skills'];
       const scrollPosition = window.scrollY + 140;
 
       for (const section of sections) {
@@ -39,17 +39,13 @@ export function Navbar({ onOpenResume }: NavbarProps) {
   const navLinks = [
     { label: 'Home', href: '#home', id: 'home' },
     { label: 'Work', href: '#work', id: 'work' },
+    { label: 'Expertise', href: '#engineering', id: 'engineering' },
     { label: 'Experience', href: '#experience', id: 'experience' },
     { label: 'Skills', href: '#skills', id: 'skills' },
   ];
 
   const scrollToSection = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -139,7 +135,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
               href="/assets/pdf/Sushant_Kulkarni_CV.pdf"
               download
               className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#0d121f] text-slate-200 border border-slate-700"
-              aria-label="View Resume"
+              aria-label="Download resume"
             >
               Resume
             </a>
@@ -160,6 +156,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
       {mobileMenuOpen && (
         <div
           id="mobile-menu-drawer"
+          onKeyDown={(event) => { if (event.key === 'Escape') { setMobileMenuOpen(false); document.getElementById('mobile-menu-toggle-btn')?.focus(); } }}
           className="md:hidden border-b border-white/10 bg-[#07090e]/98 backdrop-blur-xl px-4 pt-3 pb-6 space-y-3"
         >
           <div className="flex flex-col space-y-1">

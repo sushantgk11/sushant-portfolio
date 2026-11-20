@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react';
-import { CAPABILITY_TAGS } from '../../data/portfolioData';
+import { CAPABILITY_TAGS, EXPERIENCE_LIST, PERSONAL_INFO } from '../../data/portfolioData';
 
 interface ExperienceSectionProps {
   onOpenResume?: () => void;
@@ -8,16 +8,8 @@ interface ExperienceSectionProps {
 export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {}) {
   const shouldReduceMotion = useReducedMotion();
 
-  const coreBullets = [
-    'Architected and developed production web applications using React, Next.js, and TypeScript.',
-    'Developed modular, reusable frontend component systems and responsive interfaces across devices.',
-    'Designed scalable state-management architectures using Redux Toolkit, React Context API, and TanStack React Query for efficient data synchronization.',
-    'Integrated REST APIs and third-party services with structured data handling and reliable frontend integration.',
-    'Implemented authentication flows using NextAuth.js, Firebase Authentication, JWT, OAuth, OTP, and role-based access control (RBAC).',
-    'Integrated production payment gateways including Razorpay and Dibsy for secure payment processing.',
-    'Optimized frontend performance through SSR, ISR, route-based code splitting, lazy loading, dynamic imports, image optimization, caching, and API debouncing to improve Core Web Vitals.',
-    'Built AI-powered experiences including AI agents, RAG workflows, streaming interfaces, real-time chat widgets, and interactive application features.',
-  ];
+  const experience = EXPERIENCE_LIST[0];
+  const coreBullets = experience.bullets;
 
   return (
     <section
@@ -69,10 +61,10 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
               {/* Date & Duration */}
               <div className="space-y-0.5">
                 <div className="text-xs font-medium text-slate-300">
-                  Nov 2021 — Aug 2026
+                  {experience.period}
                 </div>
                 <div className="text-xs font-mono font-bold text-cyan-400">
-                  4.5+ Years
+                  {PERSONAL_INFO.experienceYears}
                 </div>
               </div>
             </div>
@@ -98,14 +90,14 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
 
               <div className="space-y-1">
                 <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  Senior Frontend Developer
+                  {experience.role}
                 </h3>
                 <p className="text-sm font-medium text-slate-400">
-                  Noesis Knowledge Solutions Pvt. Ltd.
+                  {experience.company}
                 </p>
                 <p className="text-xs font-mono text-slate-400">
-                  Nov 2021 — Aug 2026 <span className="text-slate-600">•</span>{' '}
-                  <span className="text-slate-300 font-medium">4.5+ Years</span>
+                  {experience.period} <span className="text-slate-600">•</span>{' '}
+                  <span className="text-slate-300 font-medium">{PERSONAL_INFO.experienceYears}</span>
                 </p>
               </div>
             </div>

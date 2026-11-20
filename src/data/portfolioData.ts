@@ -1,436 +1,258 @@
 import { Project, Experience, SkillGroup } from '../types';
 
 export const PERSONAL_INFO = {
-  name: 'Sushant Kulkarni',
-  role: 'Senior Frontend Developer',
-  headline: 'Building scalable, high-performance web applications with React, Next.js and modern frontend technologies.',
-  experienceYears: '4.5+ Years Experience',
-  coreTech: ['4.5+ Years Experience', 'React', 'Next.js', 'TypeScript', 'Redux'],
-  email: 'sushantgk11@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/sushant-kulkarni-68a026206',
-  location: 'India',
-  targetRoles: 'Senior Frontend Developer roles at leading product-based companies (Amazon, Flipkart, Razorpay, Swiggy, Microsoft, etc.)',
-  about:
-    'Sushant Kulkarni is a frontend developer focused on building scalable, accessible and high-performance web applications. His experience spans e-commerce, SaaS, fintech, AI-powered products, dashboards and interactive product experiences.',
-  metrics: [
-    { value: 'Optimized', label: 'Core Web Vitals' },
-    { value: 'Modular', label: 'Component Architecture' },
-  ],
+  name: 'Sushant Kulkarni', role: 'Senior Frontend Developer', experienceYears: '4.9 years of experience',
+  headline: 'I build React and Next.js applications, from live voice chat and AI agent workspaces to interactive jewellery storefronts.',
+  coreTech: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Redux Toolkit'], email: 'sushantgk11@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/sushant-kulkarni-68a026206', location: 'India',
+  about: 'Frontend developer building complex web applications, real-time user experiences, interactive product interfaces, and AI-powered frontend experiences across SaaS and e-commerce.',
 };
 
-export const TECH_STRIP = [
-  'React.js',
-  'Next.js',
-  'TypeScript',
-  'JavaScript',
-  'Redux Toolkit',
-  'Tailwind CSS',
-  'REST APIs',
-  'Firebase',
-];
+export const TECH_STRIP = ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'REST APIs', 'WebSockets'];
 
 export const PROJECTS: Project[] = [
   {
-    id: 'origem',
-    name: 'Origem',
-    category: 'E-commerce',
-    tagline: 'High-performance e-commerce platform with dynamic variants & Razorpay checkout',
-    description: 'E-commerce platform built with Next.js, React and TypeScript.',
-    role: 'Lead Frontend Engineer — Architected the client-side state machine, server component boundaries, and payment integration pipeline.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Razorpay'],
-    highlights: [
-      'Next.js App Router',
-      'Dynamic product pages',
-      'Product variants',
-      'Cart and wishlist',
-      'Razorpay integration',
-      'Performance optimization',
+    "id": "ai-chat-widget",
+    "name": "AI Chat Widget",
+    "category": "Conversational AI",
+    "ownership": "Independent Frontend Development",
+    "featured": true,
+    "thumbnail": "/assets/images/widget-ui.png",
+    "imageWidth": 1911,
+    "imageHeight": 863,
+    "liveDemoUrl": "https://widget.brainstormer.io/?bot=30520d55_851a_46b3_b72c_255c2a989841&voiceMode=true",
+    "description": "A visitor can type, speak, or attach a file to a conversation embedded on another website.",
+    "title": "Engineering an embeddable real-time AI chat experience",
+    "responsibilities": "I built the React interface, including the iframe integration, streamed messages, microphone capture, and interruptible playback.",
+    "technologies": [
+      "React",
+      "JavaScript",
+      "WebSockets",
+      "Audio Worklets",
+      "i18next"
     ],
-    overview:
-      'Origem is a production-grade e-commerce application engineered for rapid browsing, instantaneous state transitions between product variants, and zero-friction checkout flows. Built with Next.js App Router and custom responsive layouts.',
-    problem:
-      'Traditional storefronts frequently suffer from heavy client-side JavaScript payloads, sluggish layout shifts when toggling product variants, and unstable checkout callback loops.',
-    technicalArchitecture: [
-      'Server-driven catalog rendering with Next.js App Router for sub-second Initial Server Response.',
-      'Context API combined with granular state slices for cart, wishlist, and active inventory selection.',
-      'Optimistic UI updates for add-to-cart, wishlist toggles, and quantity adjustments.',
-      'Razorpay SDK client-side lifecycle handling with secure webhook validation and transaction recovery.',
+    "problem": "A visitor needs to be able to speak while the assistant is talking and move between text and voice in the same conversation.",
+    "architecture": "The iframe loads the bot’s theme, language, and conversation settings over HTTP. It uses postMessage to communicate readiness to the host page. A conversation-scoped WebSocket carries text chunks, voice frames, and playback events.",
+    "highlights": [
+      "Streamed text updates a single reply as it arrives.",
+      "Speaking can interrupt an answer already playing."
     ],
-    keyFeatures: [
-      'Dynamic product detail pages with multi-attribute variant matrix (size, color, finish).',
-      'Persistent cart and wishlist storage with instant badge synchronization.',
-      'Razorpay payment gateway integration supporting card, UPI, and net-banking flows.',
-      'Skeleton state loaders and zero layout shift design for mobile viewports.',
-    ],
-    engineeringChallenges: [
-      'Managing dynamic SKU variant combinations while maintaining instant visual feedback.',
-      'Eliminating hydration mismatches between server-rendered currency/pricing states and client locale.',
-      'Building resilient payment error-handling and session re-triggering for dropped network connections.',
-    ],
-    performanceConsiderations: [
-      'Implemented responsive Next.js Image optimization with WebP/AVIF formats.',
-      'Route-based code splitting and dynamic import of the Razorpay checkout overlay.',
-      'Memoized variant selector calculations to keep frame rates locked at 60fps on mobile.',
-    ],
-    results: [
-      'Streamlined checkout completion flow with zero layout shift during variant switching.',
-      'Delivered fully responsive shopping experience across desktop, tablet, and mobile devices.',
-    ],
-    liveDemoUrl: 'https://origemindia.com/',
-    thumbnail: '/assets/images/origem.jpg',
-    mockupType: 'origem',
+    "challenge": "Interrupting playback",
+    "solution": "A worklet measures ambient microphone levels before the call. During playback, the client compares incoming levels with the calibrated threshold so the visitor can interrupt. Another worklet converts microphone samples to PCM for transmission.",
+    "reliability": "While a reply streams, each chunk extends the active assistant message and the composer prevents a second send. A heartbeat and automatic reconnect support the connection lifecycle. Before upload, the client checks file count, size, and type. Removing an attachment releases its temporary preview URL.",
+    "interfaceNotes": "The composer supports Enter to send and Shift+Enter for a new line. Visitors can change the language and dismiss an image preview with Escape. They can export a single message or the entire conversation as a PDF."
   },
   {
-    id: 'ring-builder',
-    name: 'AI-Powered 3D Ring Builder ',
-    category: '3D Product Experience',
-    tagline: 'Interactive 3D product configurator with real-time customization',
-    description: 'Interactive 3D jewelry configurator with real-time product customization and AI-powered assistance.',
-    role: 'Frontend & 3D Web Developer — Built the interactive React Three Fiber viewport, material shader controls, and WebSocket state sync.',
-    technologies: ['React', 'Three.js', 'WebSockets', 'TypeScript'],
-    highlights: [
-      'React',
-      'Three.js',
-      'WebSockets',
-      'TypeScript',
-      'Interactive 3D UI',
-      'Product customization',
+    "id": "ring-builder",
+    "name": "Jewelrat 3D Ring Builder",
+    "category": "Product configuration",
+    "ownership": "Independent Frontend Development",
+    "featured": true,
+    "thumbnail": "/assets/images/jewelrat.png",
+    "imageWidth": 1907,
+    "imageHeight": 902,
+    "liveDemoUrl": "https://app.jewelrat.com/",
+    "description": "Shoppers choose a setting, change materials, and see their selections on an iJewel ring model.",
+    "title": "Keeping a ring configuration in sync with a 3D viewer",
+    "responsibilities": "I built the TypeScript frontend for the guided journeys, product controls, iJewel integration, retailer branding, and conversational design flow.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "iJewel",
+      "WebSockets",
+      "Server-Sent Events"
     ],
-    overview:
-      'A WebGL-powered 3D customization suite enabling buyers to configure custom rings—selecting bands, metals, diamond cuts, settings, and engravings—with instant photorealistic rendering and real-time multiplayer consultation via WebSockets.',
-    problem:
-      'Standard 3D web configurators often experience high frame drops on mobile GPUs, steep initial download sizes, and clunky synchronization between 2D UI controls and 3D scene nodes.',
-    technicalArchitecture: [
-      'Three.js integrated into React declarative state using React Three Fiber.',
-      'Custom PBR (Physically Based Rendering) materials for metals (platinum, rose gold, yellow gold) and diamond dispersion shaders.',
-      'WebSocket bi-directional channel for real-time collaborative styling sessions between customers and jewelry consultants.',
-      'Decoupled UI layer communicating with the 3D canvas via high-performance ref triggers without causing full React re-renders.',
+    "problem": "Shoppers can enter through different journeys. The selected ring and its materials need to carry through to the configurator and saved design.",
+    "architecture": "React Context holds journey selections. Local storage and server-saved journey data support resumption. The configurator maps product labels to material groups in the external iJewel viewer. Chat events and asynchronous design tasks feed updates back into the interface.",
+    "highlights": [
+      "Product selections update the corresponding viewer materials.",
+      "Saved journey state restores selections across screens."
     ],
-    keyFeatures: [
-      'Interactive 360-degree orbit, zoom, and lighting controls with smooth damping.',
-      'Instant material, metal, and gemstone swapping with realistic light refraction.',
-      'Real-time price recalculation as configuration parameters change.',
-      'Live shared session mode where two users view synchronized camera angles and selections.',
-    ],
-    engineeringChallenges: [
-      'Maintaining 60 FPS performance on mid-tier mobile hardware while rendering reflections and shadows.',
-      'Optimizing 3D asset delivery to keep initial 3D load times minimal.',
-      'Synchronizing camera matrices and configuration state across WebSockets with zero perceived latency.',
-    ],
-    performanceConsiderations: [
-      'Draco GLTF mesh compression reducing 3D model asset payloads significantly.',
-      'Dynamic resolution scaling and adaptive post-processing based on detected device GPU capabilities.',
-      'Preventing React state thrashing by isolating Three.js render loop updates outside the React tree.',
-    ],
-    results: [
-      'Smooth 60 FPS real-time 3D interaction across desktop and high-end mobile browsers.',
-      'Flawless synchronization of 3D configurations across collaborative WebSocket sessions.',
-    ],
-    liveDemoUrl: 'https://app.jewelrat.com/',
-    thumbnail: '/assets/images/jewelrat.png',
-    mockupType: 'ring-builder',
+    "challenge": "Capturing a design",
+    "solution": "A shopper can save an image of the configured ring. The capture flow tries the viewer and canvas before falling back when browser capture is unavailable.",
+    "reliability": "The viewer integration accounts for overlapping asynchronous updates when a shopper changes materials quickly. WebSockets carry chat messages, task polling tracks pending generated images, and a separate server-sent event stream delivers notifications.",
+    "interfaceNotes": "Responsive controls keep material choices and the design preview accessible across screen sizes. Retailer configuration supplies brand colours at runtime."
   },
   {
-    id: 'ai-chat-widget',
-    name: 'AI Chat Widget',
-    category: 'AI / Developer Platform',
-    tagline: 'Lightweight embeddable real-time AI chat widget for external websites',
-    description: 'Embeddable real-time AI chat widget for external websites.',
-    role: 'Senior Frontend Engineer — Architected the embeddable script loader, sandboxed iframe protocol, and WebSocket streaming pipeline.',
-    technologies: ['React', 'WebSockets', 'Audio Worklets', 'iframe'],
-    highlights: [
-      'React',
-      'WebSockets',
-      'Audio Worklets',
-      'iframe',
-      'Real-time streaming',
-      'Embeddable architecture',
+    "id": "brainstormer-creator-studio",
+    "name": "Brainstormer Creator / Studio",
+    "category": "AI agent workspace",
+    "ownership": "Collaborative Frontend Development",
+    "featured": true,
+    "thumbnail": "/assets/images/creator.png",
+    "imageWidth": 1888,
+    "imageHeight": 861,
+    "liveDemoUrl": "https://creator.brainstormer.io/",
+    "description": "Creators configure an agent, add knowledge sources, and preview the widget before publishing.",
+    "title": "From knowledge upload to published agent",
+    "responsibilities": "I worked on agent creation and editing, the knowledge queue, Instagram and website ingestion, publishing, and widget preview. I built responsive interfaces in dark and light themes.",
+    "technologies": [
+      "Next.js",
+      "JavaScript",
+      "Firestore",
+      "React"
     ],
-    overview:
-      'A drop-in, zero-dependency script that hosts can embed via a single `<script>` tag. It injects a secure, isolated multimodal AI chat experience with low-latency streaming text responses, markdown parsing, and real-time audio voice interactions.',
-    problem:
-      'Embedding external widgets into third-party websites often results in CSS collision, security vulnerabilities, bundle bloat, and blocked audio streams.',
-    technicalArchitecture: [
-      'Sandboxed iframe architecture isolating host website styles, cookies, and scripts from widget code.',
-      'Cross-origin postMessage protocol with cryptographic validation for parent-child sizing and positioning.',
-      'WebSockets protocol for token-by-token LLM text streaming.',
-      'Audio Worklets running on dedicated browser audio threads for real-time low-latency voice capture and playback.',
+    "problem": "An uploaded file can still be processing. Creators need to see which sources are ready before testing or publishing their agent.",
+    "architecture": "The Next.js dashboard separates agent settings from knowledge management. A sequential upload queue sends documents, while Firestore listeners receive processing updates. The preview embeds the configured chat widget in an iframe.",
+    "highlights": [
+      "A queue tracks uploads and processing feedback.",
+      "Creators can ingest documents, Instagram content, and websites."
     ],
-    keyFeatures: [
-      'Universal 1-line script tag embeddable on any web platform (WordPress, Shopify, React, plain HTML).',
-      'Real-time token streaming with syntax highlighting and markdown table formatting.',
-      'Voice input and audio output using Audio Worklets for seamless conversational latency.',
-      'Responsive floating launcher widget with customizable themes matching host brand colors.',
-    ],
-    engineeringChallenges: [
-      'Preventing style leakage in both directions: host CSS impacting widget UI, and widget CSS impacting host page.',
-      'Handling mobile keyboard adjustments and virtual viewport resizing within an embedded iframe.',
-      'Achieving smooth audio streaming across differing browser audio sample rates.',
-    ],
-    performanceConsiderations: [
-      'Ultra-compact initial loader script (<4KB gzipped) that lazily bootstraps the iframe only on user interaction or page idle.',
-      'Offloading audio processing to Audio Worklets to keep the main JavaScript thread completely unblocked.',
-      'Optimized token rendering with requestAnimationFrame batching to avoid DOM thrashing during high-speed AI output.',
-    ],
-    results: [
-      'Engineered an embeddable architecture with zero CSS collisions across diverse host environments.',
-      'Delivered low-latency multimodal conversational experiences via WebSockets and Audio Worklets.',
-    ],
-    liveDemoUrl: 'https://widget.brainstormer.io/?bot=30520d55_851a_46b3_b72c_255c2a989841&voiceMode=false',
-    thumbnail: '/assets/images/widget-ui.png',
-    mockupType: 'ai-widget',
+    "challenge": "Showing progress after upload",
+    "solution": "Finishing a file transfer and finishing knowledge processing are separate events. The queue advances through files while the interface continues to display processing status and retry actions.",
+    "reliability": "A ref keeps the current queue available to asynchronous handlers. Status listeners update the file list as processing completes.",
+    "interfaceNotes": "Agent forms, source lists, and previews adapt to smaller screens. Light and dark themes carry through the editing workflow."
   },
   {
-    id: 'eaa-donation',
-    name: 'EAA Donation',
-    category: 'Donation / SaaS',
-    tagline: 'Bilingual (EN/AR) donation platform with secure payments and authentication',
-    description: 'Bilingual donation platform with secure payments and authentication.',
-    role: 'Senior Frontend Developer — Designed the bidirectional RTL/LTR layout system, NextAuth authentication pipeline, and Dibsy payment integration.',
-    technologies: ['Next.js', 'TypeScript', 'MySQL', 'Dibsy'],
-    highlights: [
-      'Next.js App Router',
-      'English / Arabic support',
-      'Authentication',
-      'JWT security',
-      'Dibsy payment gateway',
-      'MySQL',
+    "id": "eaa-donation",
+    "name": "EAA Donation",
+    "category": "Charitable giving",
+    "ownership": "Independent Frontend Development",
+    "featured": false,
+    "thumbnail": "/assets/images/donation.png",
+    "imageWidth": 1882,
+    "imageHeight": 863,
+    "liveDemoUrl": "https://donate.educationaboveall.org/",
+    "description": "Donors browse campaigns and enter donation details in English or Arabic.",
+    "title": "Developing a bilingual donation platform",
+    "responsibilities": "I built the public donation frontend, including bilingual campaign pages, donation forms, and donor-facing account screens.",
+    "technologies": [
+      "Next.js",
+      "JavaScript",
+      "i18next",
+      "Drupal"
     ],
-    overview:
-      'The EAA Donation Platform is a mission-critical giving platform built to serve both English and Arabic speaking donors. It combines RTL layout directionality, secure JWT authentication via NextAuth, structured donation tiers, and Dibsy payment gateway processing.',
-    problem:
-      'Supporting seamless Arabic (RTL) and English (LTR) experiences without UI glitches, misaligned form inputs, or broken payment redirects, all while maintaining rigorous payment security standards.',
-    technicalArchitecture: [
-      'Next.js App Router with dynamic locale routing (`/[locale]/...`) and CSS logical properties.',
-      'NextAuth.js implementation using encrypted JWT session tokens and role-based route middleware.',
-      'Dibsy payment processing pipeline with custom recurring and one-time donation flows.',
-      'Containerized development and staging workflow using Docker with MySQL persistence.',
+    "problem": "A donor needs to understand the campaign, amount, and form feedback in either reading direction.",
+    "architecture": "Next.js pages combine Drupal content with localized React components. Language context drives translations and layout direction. Authentication-related screens lead into donor dashboards.",
+    "highlights": [
+      "English and Arabic share the same donation journey.",
+      "Campaign pages present CMS-managed content."
     ],
-    keyFeatures: [
-      'Comprehensive RTL/LTR bidirectional support with automated font swapping and icon flipping.',
-      'Secure donor authentication, donor dashboards, and tax receipt histories.',
-      'Customizable donation amounts, campaign allocations, and recurring gift schedules.',
-      'Dibsy payment integration with localized payment methods.',
-    ],
-    engineeringChallenges: [
-      'Ensuring complete visual symmetry and typographic hierarchy between Arabic and Latin scripts without duplicated CSS.',
-      'Protecting payment state through browser locale transitions and redirect flows.',
-      'Strict input validation for international phone numbers and multi-currency formats.',
-    ],
-    performanceConsiderations: [
-      'Static generation for campaign landing pages with on-demand revalidation.',
-      'CSS Logical Properties to eliminate RTL duplicate stylesheets.',
-      'Font subsetting for Arabic glyphs to reduce critical render-blocking web fonts.',
-    ],
-    results: [
-      'Delivered seamless English and Arabic bilingual donor experience with unified codebase.',
-      'Ensured secure, compliant donation processing with frictionless user authentication.',
-    ],
-    liveDemoUrl: 'https://donate.educationaboveall.org/',
-    thumbnail: '/assets/images/donation.png',
-    mockupType: 'eaa',
+    "challenge": "Switching reading direction",
+    "solution": "Changing the interface language also changes layout direction. The forms and campaign components use the selected direction alongside translated labels.",
+    "reliability": "Server pages fetch independent campaign content concurrently. Donation forms validate inputs and surface errors before submission.",
+    "interfaceNotes": "English uses left-to-right layouts and Arabic uses right-to-left layouts across responsive donation and account interfaces."
   },
   {
-    id: 'brainstormer-creator-studio',
-    name: 'Brainstormer Creator / Studio',
-    category: 'Creator / SaaS',
-    tagline: 'Creator platform for content management, workflows and real-time interactions',
-    description: 'Creator platform for content management, workflows and real-time interactions.',
-    role: 'Senior Frontend Engineer — Designed the Redux Toolkit state slice architecture, Firestore real-time synchronization, and Socket.io interaction channels.',
-    technologies: ['Next.js', 'Redux Toolkit', 'Firestore', 'WebSockets'],
-    highlights: [
-      'Next.js',
-      'Redux Toolkit',
-      'Firestore',
-      'WebSockets',
-      'Content management',
-      'Workflow automation',
+    "id": "origem",
+    "name": "Origem",
+    "category": "E-commerce",
+    "ownership": "Collaborative Frontend Development",
+    "featured": false,
+    "thumbnail": "/assets/images/origem.jpg",
+    "imageWidth": 1200,
+    "imageHeight": 630,
+    "liveDemoUrl": "https://origemindia.com/",
+    "description": "Shoppers browse lab-grown diamond jewellery, compare variants, and carry their selection into checkout.",
+    "title": "Taking a jewellery variant from catalogue to checkout",
+    "responsibilities": "I contributed to catalogue filtering, product details, cart and wishlist interactions, OTP sign-in, and checkout UI with Razorpay.",
+    "technologies": [
+      "Next.js",
+      "JavaScript",
+      "React",
+      "Razorpay"
     ],
-    overview:
-      'Brainstormer Creator / Studio is an advanced cloud workspace tailored for content creators, digital producers, and media teams to manage asset pipelines, coordinate creative workflows, and collaborate live via real-time socket connections.',
-    problem:
-      'Content creators juggle disparate apps for media asset logging, script revisions, and audience interaction; existing suites lack synchronized live state and suffer from disjointed editing workflows.',
-    technicalArchitecture: [
-      'Next.js App Router for responsive studio viewports and optimized asset streaming.',
-      'Redux Toolkit global state store managing active timeline, layer tree, and workflow nodes.',
-      'Firebase Firestore for persistent cloud document storage and live document subscription feeds.',
-      'Socket.io bi-directional messaging layer for live peer cursor presence and collaborative canvas editing.',
+    "problem": "Filters narrow a large catalogue, but the product a shopper chooses must stay consistent from the listing through checkout.",
+    "architecture": "Next.js server-renders catalogue and product routes from API data so their content is available to search engines. Client components handle variant selection and filter changes. Shared context connects sign-in, cart, and wishlist actions before the checkout interface opens Razorpay.",
+    "highlights": [
+      "Variant selection resolves the active product SKU.",
+      "Wishlist actions update immediately and can roll back."
     ],
-    keyFeatures: [
-      'Unified content management dashboard for digital assets, copy drafts, and distribution timelines.',
-      'Interactive workflow automation builder for content approvals and asset rendering pipelines.',
-      'Real-time multiplayer co-editing powered by Socket.io room listeners.',
-      'Instant Firestore cloud synchronization with offline mutation queueing.',
-    ],
-    engineeringChallenges: [
-      'Harmonizing Redux Toolkit client-side state with asynchronous Firestore snapshot updates.',
-      'Handling real-time collaborative state conflicts during rapid concurrent workflow edits.',
-      'Optimizing heavy media asset loading and preview rendering within the browser canvas.',
-    ],
-    performanceConsiderations: [
-      'Memoized selector functions with Reselect to prevent redundant component re-evaluations.',
-      'Optimistic client updates with background reconciliation via Socket.io.',
-      'Chunked asset uploading and lazy-loaded workflow modules.',
-    ],
-    results: [
-      'Created a unified creator studio accelerating digital content publishing workflows.',
-      'Delivered seamless real-time multi-user interaction with sub-50ms synchronization latency.',
-    ],
-    liveDemoUrl: 'https://creator.brainstormer.io/',
-    thumbnail: '/assets/images/creator.png',
-    mockupType: 'brainstormer-creator',
+    "challenge": "Keeping saved items consistent",
+    "solution": "The wishlist updates when a shopper presses save. If the request fails, the interface rolls back the optimistic change so it reflects the stored list.",
+    "reliability": "Intersection Observer triggers additional catalogue pages as the shopper scrolls. Next.js images and dynamically loaded components limit initial page work.",
+    "interfaceNotes": "Responsive product galleries and variant controls let shoppers inspect a product and change its configuration on smaller screens."
   },
   {
-    id: 'smifs',
-    name: 'SMIFS',
-    category: 'Fintech / Financial Services',
-    tagline: 'Enterprise financial services portal built with Next.js and Strapi CMS',
-    description: 'Financial services portal built with Next.js and Strapi.',
-    role: 'Frontend Engineer — Built dynamic research report catalog, market indices integrations, and Strapi CMS content pipelines.',
-    technologies: ['Next.js', 'React', 'TypeScript', 'Strapi'],
-    highlights: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Strapi',
-      'Market data feeds',
-      'Financial services',
+    "id": "smifs",
+    "name": "SMIFS",
+    "category": "Financial Services",
+    "ownership": "Collaborative Frontend Development",
+    "featured": false,
+    "thumbnail": "/assets/images/smifs.png",
+    "imageWidth": 1906,
+    "imageHeight": 865,
+    "liveDemoUrl": "https://smifs.com/",
+    "description": "Investors explore products, preview research documents, and submit account-opening enquiries.",
+    "title": "Making financial research available on the web",
+    "responsibilities": "I contributed to product and research pages, account-opening forms, shared navigation, and SEO work on the financial-services site.",
+    "technologies": [
+      "Next.js",
+      "JavaScript",
+      "REST APIs",
+      "React PDF"
     ],
-    overview:
-      'SMIFS is an enterprise financial services portal providing institutional and retail investors with real-time market insights, equity research reports, wealth management services, and regulatory disclosures powered by a headless Strapi CMS.',
-    problem:
-      'Financial portals require frequent updates of market research, compliance documents, and index feeds; traditional monolithic CMS systems were sluggish to update and failed to deliver fast mobile page speeds.',
-    technicalArchitecture: [
-      'Next.js App Router providing Static Site Generation (SSG) with On-Demand Incremental Static Regeneration (ISR).',
-      'Headless Strapi CMS integration via secure GraphQL/REST endpoints for research publications and regulatory filings.',
-      'Real-time financial market tickers and indices data integration.',
-      'Strict TypeScript typings mirroring financial schemas, report categories, and advisory offerings.',
+    "problem": "Readers need to inspect research and account documents while editors continue to update the underlying content.",
+    "architecture": "Next.js dynamic routes present server-rendered CMS content. Cached fetches support incremental revalidation, and the sitemap includes CMS-derived routes. Interactive forms and previews run in the browser.",
+    "highlights": [
+      "Research cards preview the first page of a PDF.",
+      "Account forms accept supporting documents."
     ],
-    keyFeatures: [
-      'Institutional equity research library with faceted filtering by sector, market cap, and report date.',
-      'Real-time market tickers displaying benchmark indices (NIFTY, SENSEX) and sectoral movements.',
-      'Dynamic content management powered by Strapi with structured publishing approval workflows.',
-      'Mobile-optimized financial calculators and wealth advisory inquiry portals.',
-    ],
-    engineeringChallenges: [
-      'Structuring headless Strapi content schemas to support complex financial tables and downloadable PDF disclosures.',
-      'Implementing ISR webhooks so new analyst reports publish instantaneously to the edge without rebuilding the full site.',
-      'Ensuring strict financial compliance presentation standards and accessible data tables.',
-    ],
-    performanceConsiderations: [
-      'Edge caching of static pages with on-demand cache revalidation triggered by Strapi webhooks.',
-      'Lazy loading of market charts and dynamic financial calculator modules.',
-      'Zero layout shift (CLS < 0.01) achieved through reserved bounding boxes on market ticker widgets.',
-    ],
-    results: [
-      'Accelerated analyst publishing workflow from hours to seconds using Strapi webhooks and Next.js ISR.',
-      'Delivered lightning-fast page loads and high SEO visibility for investment research publications.',
-    ],
-    liveDemoUrl: 'https://smifs.com/',
-    thumbnail: '/assets/images/smifs.png',
-    mockupType: 'smifs',
-  },
+    "challenge": "Previewing a report inside a card",
+    "solution": "PDF rendering needs browser APIs. A client-only dynamic import loads the preview, scales the first page to the card, and falls back to a visual placeholder on failure.",
+    "reliability": "Limiting the preview to one page avoids rendering an entire report inline. Cache revalidation lets CMS updates reach readers between builds.",
+    "interfaceNotes": "The site provides mobile navigation, descriptive labels on selected controls, and visible submission feedback on enquiry and account forms."
+  }
 ];
 
 export const ENGINEERING_HIGHLIGHTS = [
   {
-    id: 'performance',
-    title: 'Performance',
-    stat: 'Optimized',
-    statLabel: 'Bundle & Vitals',
-    description: 'Code splitting, dynamic imports, lazy loading, image optimization and Core Web Vitals.',
+    "title": "Frontend Architecture",
+    "projectId": "ai-chat-widget",
+    "section": "architecture",
+    "description": "How an iframe hosts a configurable React application on another site."
   },
   {
-    id: 'architecture',
-    title: 'Architecture',
-    stat: 'Clean',
-    statLabel: 'Design & Flow',
-    description: 'Scalable component architecture and maintainable frontend patterns.',
+    "title": "Real-Time Applications",
+    "projectId": "brainstormer-creator-studio",
+    "section": "implementation",
+    "description": "How creators see processing updates after a knowledge upload finishes."
   },
   {
-    id: 'reusability',
-    title: 'Reusable Components',
-    stat: 'Modular',
-    statLabel: 'Shared Systems',
-    description: 'Shared UI patterns and design tokens that minimize redundant application logic.',
+    "title": "Complex State Management",
+    "projectId": "ring-builder",
+    "section": "architecture",
+    "description": "How a saved ring configuration survives a change of screen."
   },
   {
-    id: 'accessibility',
-    title: 'Accessibility',
-    stat: 'WCAG',
-    statLabel: 'Standards Compliant',
-    description: 'Semantic HTML, keyboard navigation and accessible UI patterns.',
+    "title": "Performance Engineering",
+    "projectId": "smifs",
+    "section": "implementation",
+    "description": "How a research card previews a PDF without loading the whole report."
   },
+  {
+    "title": "Responsive and Accessible UI",
+    "projectId": "eaa-donation",
+    "section": "implementation",
+    "description": "How changing languages also changes the reading direction of a donation form."
+  },
+  {
+    "title": "API and Third-Party Integrations",
+    "projectId": "origem",
+    "section": "architecture",
+    "description": "How product selection, customer state, and checkout work together."
+  }
 ];
 
-export const EXPERIENCE_LIST: Experience[] = [
-  {
-    role: 'Senior Frontend Developer',
-    company: 'Noesis Knowledge Solutions Pvt. Ltd.',
-    period: '2021 – 2026',
-    location: 'Full-time',
-    bullets: [
-      'Architected and developed production web applications using React, Next.js, and TypeScript.',
-      'Developed modular, reusable frontend component systems and responsive interfaces across devices.',
-      'Designed scalable state-management architectures using Redux Toolkit, React Context API, and TanStack React Query for efficient data synchronization.',
-      'Integrated REST APIs and third-party services with structured data handling and reliable frontend integration.',
-      'Implemented authentication flows using NextAuth.js, Firebase Authentication, JWT, OAuth, OTP, and role-based access control (RBAC).',
-      'Integrated production payment gateways including Razorpay and Dibsy for secure payment processing.',
-      'Optimized frontend performance through SSR, ISR, route-based code splitting, lazy loading, dynamic imports, image optimization, caching, and API debouncing to improve Core Web Vitals.',
-      'Built AI-powered experiences including AI agents, RAG workflows, streaming interfaces, real-time chat widgets, and interactive application features.',
-    ],
-    skills: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Redux Toolkit',
-      'REST APIs',
-      'Authentication',
-      'Payment Integrations',
-      'Performance Optimization',
-      'AI-Powered Apps',
-    ],
-  },
-];
-
-export const CAPABILITY_TAGS = [
-  'AI-Powered Applications',
-  'E-commerce Experiences',
-  'SaaS Platforms',
-  'Real-Time Applications',
-  'Interactive 3D Experiences',
-  'Payment Workflows',
-  'Authentication & RBAC',
-  'Performance Optimization',
-  'Responsive Web Applications',
-  'Embeddable Widgets',
-  'Analytics & Tracking',
-];
-
+export const EXPERIENCE_LIST: Experience[] = [{
+  role: 'Senior Frontend Developer',
+  company: 'Noesis Knowledge Solutions Pvt. Ltd.',
+  period: 'November 2021 – August 2026',
+  location: 'Full-time',
+  bullets: [
+    'Independently developed the React frontends for an embeddable voice and text widget and a jewellery configurator integrated with iJewel.',
+    'Built reusable English and Arabic donation interfaces in Next.js, including campaign forms, bidirectional layouts, and donor account screens.',
+    'Contributed agent editing, knowledge ingestion, publishing, and widget preview to Brainstormer Studio. Firestore updates kept processing status visible after upload.',
+    'Connected storefront components to catalogue APIs, OTP sign-in, cart state, and Razorpay checkout. On SMIFS, client-only PDF previews loaded the first page of research reports on demand.',
+  ],
+  skills: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'REST APIs', 'WebSockets', 'Responsive UI'],
+}];
+export const CAPABILITY_TAGS = ['Frontend Architecture', 'Real-Time Applications', 'Interactive Product Interfaces', 'SaaS Platforms', 'E-commerce Experiences', 'CMS Integration', 'Payment-Related UI', 'Responsive Web Applications'];
 export const SKILL_CATEGORIES: SkillGroup[] = [
-  {
-    title: 'Frontend',
-    skills: ['React.js', 'Next.js', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
-  },
-  {
-    title: 'State & Data',
-    skills: ['Redux', 'Redux Toolkit', 'Context API', 'TanStack Query'],
-  },
-  {
-    title: 'UI & Styling',
-    skills: ['Tailwind CSS', 'SASS', 'Bootstrap', 'Responsive Design'],
-  },
-  {
-    title: 'API & Integration',
-    skills: ['REST APIs', 'Firebase', 'WebSockets', 'MySQL', 'Strapi'],
-  },
-  {
-    title: 'Build & Testing',
-    skills: ['Webpack', 'Jest', 'npm', 'Git'],
-  },
-  {
-    title: 'AI-Assisted Development',
-    description: 'Productivity acceleration tools',
-    skills: ['Cursor', 'Claude', 'ChatGPT', 'OpenAI Codex'],
-  },
+  { title: 'Core Frontend', skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'HTML', 'CSS'] },
+  { title: 'State and Data', skills: ['Redux Toolkit', 'React Context', 'TanStack Query', 'REST APIs', 'WebSockets'] },
+  { title: 'UI Engineering', skills: ['Tailwind CSS', 'Sass', 'Responsive Design', 'Component Architecture'] },
+  { title: 'Platforms and Integrations', skills: ['Firebase and Firestore', 'CMS integrations', 'Payment gateway integrations', 'iJewel viewer integration'] },
+  { title: 'Testing and Tooling', skills: ['Git', 'Build tooling'] },
+  { title: 'AI-Assisted Development', description: 'Productivity tools', skills: ['Cursor', 'Claude', 'ChatGPT', 'OpenAI Codex'] },
 ];

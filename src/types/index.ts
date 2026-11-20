@@ -2,29 +2,23 @@ export interface Project {
   id: string;
   name: string;
   category: string;
-  tagline: string;
+  ownership: string;
+  featured: boolean;
+  thumbnail: string;
+  imageWidth: number;
+  imageHeight: number;
+  liveDemoUrl: string;
   description: string;
-  role: string;
+  title: string;
+  responsibilities: string;
   technologies: string[];
-  highlights: string[];
-  overview: string;
   problem: string;
-  technicalArchitecture: string[];
-  keyFeatures: string[];
-  engineeringChallenges: string[];
-  performanceConsiderations: string[];
-  results?: string[];
-  liveDemoUrl?: string;
-  githubUrl?: string;
-  thumbnail?: string;
-  mockupType:
-    | 'origem'
-    | 'brainstormer-lead'
-    | 'eaa'
-    | 'ring-builder'
-    | 'brainstormer-creator'
-    | 'ai-widget'
-    | 'smifs';
+  architecture: string;
+  highlights: string[];
+  challenge: string;
+  solution: string;
+  reliability: string;
+  interfaceNotes: string;
 }
 
 export interface Experience {

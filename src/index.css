@@ -42,3 +42,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+:focus-visible { outline: 3px solid #67e8f9 !important; outline-offset: 3px; }
+[id] { scroll-margin-top: 5rem; }
+.skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; padding: .75rem; background: #fff; color: #111; }
+.skip-link:focus { top: 1rem; }
+.eyebrow { color: #67e8f9; font-size: .8125rem; font-weight: 600; }
+.tech-tag { border: 1px solid #334155; border-radius: .375rem; padding: .2rem .5rem; font-size: .8125rem; color: #cbd5e1; }
+.study section { margin: 2rem 0; }
+.study h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: .5rem; }
+.study p { line-height: 1.7; }
+.study section p, .study details p { max-width: 70ch; color: #cbd5e1; }
+.study a { color: #67e8f9; text-decoration: underline; text-underline-offset: .2rem; }
+.study details { padding: 1rem 0; border-top: 1px solid #334155; }
+.study summary { cursor: pointer; font-weight: 600; }
+.study details[open] summary { margin-bottom: .75rem; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

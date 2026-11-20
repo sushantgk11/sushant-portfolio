@@ -7,12 +7,13 @@ interface FooterProps {
 
 export function Footer({ onOpenResume }: FooterProps) {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Work', href: '#work' },
+    { label: 'Expertise', href: '#engineering' },
     { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
   ];

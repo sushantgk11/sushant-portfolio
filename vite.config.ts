@@ -1,3 +1,4 @@
+import { portfolioPages } from './portfolioPages';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
@@ -66,7 +67,7 @@ function aistudioMediaPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss(), aistudioMediaPlugin()],
+    plugins: [react(), tailwindcss(), aistudioMediaPlugin(), portfolioPages()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

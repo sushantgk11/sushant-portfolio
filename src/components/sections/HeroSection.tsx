@@ -47,13 +47,7 @@ function MiniRedux() {
 export function HeroSection({ onOpenResume }: HeroSectionProps) {
   const shouldReduceMotion = useReducedMotion();
 
-  const scrollToWork = (e: MouseEvent) => {
-    e.preventDefault();
-    const el = document.getElementById('work');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -114,14 +108,14 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
 
             {/* Supporting Pitch Text */}
             <motion.p variants={itemVariants} className="text-base text-slate-300 leading-relaxed max-w-lg font-normal">
-              Building scalable, high-performance web applications with React, Next.js and modern frontend technologies.
+              {PERSONAL_INFO.headline}
             </motion.p>
 
             {/* Horizontal Row of Technology & Experience Badges */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 pt-2">
               <div className="flex items-center gap-2 text-xs font-medium text-slate-300">
                 <Briefcase className="w-4 h-4 text-cyan-400" />
-                <span>4.5+ Years Experience</span>
+                <span>{PERSONAL_INFO.experienceYears}</span>
               </div>
 
               <div className="flex items-center gap-1.5 text-xs font-medium text-slate-300">
@@ -147,14 +141,14 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
 
             {/* Action CTAs */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
-              <button
+              <a
                 id="hero-view-work-btn"
-                onClick={scrollToWork}
+                href="#work"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-all cursor-pointer shadow-lg shadow-blue-600/30 active:scale-[0.98]"
               >
                 <span>View My Work</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
 
               <a
                 id="hero-download-resume-btn"
@@ -165,6 +159,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
                 <Download className="w-4 h-4 text-slate-300" />
                 <span>Download Resume</span>
               </a>
+              <a className="text-sm font-semibold text-cyan-300" href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             </motion.div>
           </motion.div>
 

@@ -8,31 +8,31 @@ export function SkillsSection() {
   const getCategoryMeta = (title: string, index: number) => {
     const num = `0${index + 1}`;
     switch (title) {
-      case 'Frontend':
+      case 'Core Frontend':
         return {
           num,
           label: 'FRONTEND',
           icon: <Monitor className="w-5 h-5 text-cyan-400" />,
         };
-      case 'State & Data':
+      case 'State and Data':
         return {
           num,
           label: 'STATE & DATA',
           icon: <Database className="w-5 h-5 text-cyan-400" />,
         };
-      case 'UI & Styling':
+      case 'UI Engineering':
         return {
           num,
           label: 'UI & STYLING',
           icon: <Palette className="w-5 h-5 text-cyan-400" />,
         };
-      case 'API & Integration':
+      case 'Platforms and Integrations':
         return {
           num,
           label: 'API & INTEGRATION',
           icon: <Cloud className="w-5 h-5 text-cyan-400" />,
         };
-      case 'Build & Testing':
+      case 'Testing and Tooling':
         return {
           num,
           label: 'BUILD & TESTING',
@@ -108,7 +108,7 @@ export function SkillsSection() {
                       {meta.num}
                     </div>
                     <h3 className="text-xs font-bold text-white tracking-wider uppercase">
-                      {meta.label}
+                      {cat.title}
                     </h3>
                   </div>
                 </div>
