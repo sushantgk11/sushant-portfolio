@@ -5,6 +5,7 @@ export interface Project {
   ownership: string;
   featured: boolean;
   thumbnail: string;
+  imageAlt: string;
   imageWidth: number;
   imageHeight: number;
   liveDemoUrl: string;

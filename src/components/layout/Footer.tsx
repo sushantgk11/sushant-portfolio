@@ -1,11 +1,7 @@
 import { ArrowUp, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
-interface FooterProps {
-  onOpenResume?: () => void;
-}
-
-export function Footer({ onOpenResume }: FooterProps) {
+export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
@@ -36,7 +32,7 @@ export function Footer({ onOpenResume }: FooterProps) {
 
           {/* Center / Right: Nav links + LinkedIn + Download Resume */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <div className="flex items-center gap-4 sm:gap-5 text-xs text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-5 text-xs text-slate-400">
               {navLinks.map((link) => (
                 <a
                   key={link.label}

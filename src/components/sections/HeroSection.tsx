@@ -1,12 +1,8 @@
-import { MouseEvent } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Download, Briefcase } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { HeroVisual } from './HeroVisual';
 
-interface HeroSectionProps {
-  onOpenResume: () => void;
-}
 
 // Custom crisp mini icons for the hero tech row
 function MiniReact() {
@@ -44,7 +40,7 @@ function MiniRedux() {
   );
 }
 
-export function HeroSection({ onOpenResume }: HeroSectionProps) {
+export function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
 
 
@@ -84,7 +80,7 @@ export function HeroSection({ onOpenResume }: HeroSectionProps) {
           {/* Left Column: Hero Typography & Actions (Matching Mockup) */}
           <motion.div
             variants={containerVariants}
-            initial="hidden"
+            initial={false}
             animate="visible"
             className="lg:col-span-6 space-y-6"
           >

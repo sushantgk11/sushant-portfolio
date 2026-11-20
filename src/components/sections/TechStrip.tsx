@@ -67,10 +67,10 @@ export function TechStrip() {
     <section
       id="tech-strip"
       aria-label="Core Technical Stack"
-      className="border-y border-white/[0.06] bg-[#070a10] py-4 md:py-5 overflow-x-auto scrollbar-none"
+      className="border-y border-white/[0.06] bg-[#070a10] py-4 md:py-5"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 min-w-max">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8 md:gap-x-10">
           {items.map((item) => (
             <div
               key={item.label}

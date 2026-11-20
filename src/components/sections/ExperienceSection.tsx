@@ -1,11 +1,7 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { CAPABILITY_TAGS, EXPERIENCE_LIST, PERSONAL_INFO } from '../../data/portfolioData';
 
-interface ExperienceSectionProps {
-  onOpenResume?: () => void;
-}
-
-export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {}) {
+export function ExperienceSection() {
   const shouldReduceMotion = useReducedMotion();
 
   const experience = EXPERIENCE_LIST[0];
@@ -50,7 +46,7 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Timeline Node & Label Column */}
-          <div className="lg:col-span-2 hidden sm:flex flex-col items-start pt-1">
+          <div className="lg:col-span-2 hidden lg:flex flex-col items-start pt-1">
             <div className="flex items-center gap-3">
               {/* Glowing circular node */}
               <div className="relative flex items-center justify-center">
@@ -117,14 +113,14 @@ export function ExperienceSection({ onOpenResume }: ExperienceSectionProps = {})
             </div>
 
             {/* Increased Comprehensive Engineering Responsibilities Bullets */}
-            <div className="space-y-3 pt-2">
-              {coreBullets.map((bullet, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <ul className="space-y-3 pt-2">
+              {coreBullets.map(bullet => (
+                <li key={bullet} className="flex items-start gap-2.5 text-sm text-slate-300 leading-relaxed">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0 shadow-[0_0_6px_rgba(6,182,212,0.6)]" />
                   <span>{bullet}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
           </motion.div>
 

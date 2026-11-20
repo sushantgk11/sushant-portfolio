@@ -1,13 +1,8 @@
-import { useState, useEffect, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Download, Linkedin } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
-interface NavbarProps {
-  onOpenResume: () => void;
-  onOpenContact: () => void;
-}
-
-export function Navbar({ onOpenResume }: NavbarProps) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -44,7 +39,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
     { label: 'Skills', href: '#skills', id: 'skills' },
   ];
 
-  const scrollToSection = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+  const closeMenu = () => {
     setMobileMenuOpen(false);
   };
 
@@ -63,9 +58,9 @@ export function Navbar({ onOpenResume }: NavbarProps) {
           {/* Logo / Initials "SK" as shown in the design */}
           <a
             href="#home"
-            onClick={(e) => scrollToSection(e, '#home')}
+            onClick={closeMenu}
             className="flex items-center gap-1.5 cursor-pointer group"
-            aria-label="Sushant Kulkarni Portfolio Home"
+            aria-label="SK — Sushant Kulkarni portfolio home"
           >
             <span className="font-bold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">
               SK
@@ -85,7 +80,8 @@ export function Navbar({ onOpenResume }: NavbarProps) {
                   key={link.id}
                   id={`nav-link-${link.id}`}
                   href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={closeMenu}
                   className={`relative py-1 transition-colors group ${
                     isActive ? 'text-white font-medium' : 'text-slate-400 hover:text-slate-200'
                   }`}
@@ -145,6 +141,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
               className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
+              aria-controls={mobileMenuOpen ? 'mobile-menu-drawer' : undefined}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -165,7 +162,7 @@ export function Navbar({ onOpenResume }: NavbarProps) {
                 key={link.id}
                 id={`mobile-nav-${link.id}`}
                 href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
+                onClick={closeMenu}
                 className="px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
               >
                 {link.label}

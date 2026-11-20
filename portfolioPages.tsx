@@ -1,5 +1,6 @@
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
+import App from './src/App';
 import type { Plugin } from 'vite';
 import { CaseStudy } from './src/components/projects/CaseStudy';
 import { PROJECTS } from './src/data/portfolioData';
@@ -20,6 +21,16 @@ function projectPage(project: Project, stylesheet: string) {
         <meta property="og:type" content="article" /><meta property="og:title" content={title} />
         <meta property="og:description" content={project.description} /><meta property="og:image" content={origin + project.thumbnail} />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'TechArticle',
+          headline: project.title,
+          description: project.description,
+          author: { '@type': 'Person', name: 'Sushant Kulkarni', url: origin },
+          url, image: origin + project.thumbnail,
+        }).replace(/</g, '\\u003c') }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="stylesheet" href={stylesheet} />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
       </head>
@@ -47,6 +58,10 @@ export function portfolioPages(): Plugin {
       if (home?.type !== 'asset') throw new Error('Missing portfolio homepage');
       const stylesheet = String(home.source).match(/<link[^>]+rel="stylesheet"[^>]+href="(\/assets\/[^"]+\.css)"/)?.[1];
       if (!stylesheet) throw new Error('Missing compiled portfolio stylesheet');
+      home.source = String(home.source).replace(
+        '<div id="root"></div>',
+        '<div id="root">' + renderToString(<App />) + '</div>',
+      );
       for (const project of PROJECTS) {
         this.emitFile({type: 'asset', fileName: 'projects/' + project.id + '/index.html', source: projectPage(project, stylesheet)});
       }

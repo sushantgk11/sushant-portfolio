@@ -5,7 +5,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <article className="flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-800 bg-[#0c101a]">
       <img
         src={'/assets/images/cards/' + project.id + '.webp'}
-        alt={project.name + ' project preview'}
+        alt={project.imageAlt}
         width={960}
         height={432}
         loading="lazy"
